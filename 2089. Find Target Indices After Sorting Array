@@ -1,0 +1,17 @@
+vector<int> targetIndices(vector<int>& nums, int target) {
+    sort(nums.begin(), nums.end());
+    auto  i = find(nums.begin(), nums.end(), target);
+    vector<int> ans{};
+    if(i!=nums.end())
+    {
+        auto j = i-nums.begin();
+        int k = nums[j];
+        while(j< nums.size() && k==nums[j]  )
+        {
+            ans.push_back(j);
+            j++;
+        }
+    }
+    
+    return ans;
+}
