@@ -1,0 +1,23 @@
+int countKDifference(vector<int>& nums, int k) {
+    map<int, int> mp;
+    for (auto i : nums)
+    {
+        mp[i]++;
+    }
+
+    int ans = 0;
+   
+    for (auto itr = mp.begin(), itr2 = itr++; itr != mp.end(); )
+    {
+        if(abs(itr->first-itr2->first)==k)
+        {
+            ans += itr->second* itr2->second;
+            itr2++;
+            itr++;
+        }
+        else if(abs(itr->first-itr2->first)>k) itr2++;
+        else itr++;
+    }
+
+    return ans;
+}
