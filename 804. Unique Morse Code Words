@@ -1,0 +1,16 @@
+int uniqueMorseRepresentations(vector<string>& words) {
+    const vector<string> str = { ".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.." };
+    set<string> st;
+    for(auto i : words)
+    {
+        string tt{};
+        for(auto j : i)
+        {
+            int p = j - 'a';
+            tt += str[p];
+        }
+        st.insert(tt);
+    }
+
+    return st.size();
+}
