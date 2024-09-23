@@ -1,0 +1,24 @@
+int countConsistentStrings(string allowed, vector<string>& words) {
+    set<char> ss;
+    for (auto i : allowed)
+    {
+        ss.insert(i);
+    }
+
+    int ans = 0;
+    for (auto i : words)
+    {
+        bool tf = false;
+        for (auto j : i)
+        {
+            if (ss.find(j) == ss.end())
+            {
+                tf = true;
+                break;
+            }
+        }
+        if (!tf) ans++;
+    }
+
+    return ans;
+}
