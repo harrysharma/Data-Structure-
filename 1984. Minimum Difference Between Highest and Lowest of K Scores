@@ -1,0 +1,12 @@
+int minimumDifference(vector<int>& nums, int k) {
+
+    sort(nums.begin(), nums.end());
+    int ans = INT_MAX;
+    for (int i = 0, j=k-1; j < nums.size(); i++,j++)
+    {
+        int t = nums[j] - nums[i];
+        if (ans > t) ans = t;
+    }
+
+    return ans;
+}
