@@ -1,0 +1,28 @@
+int minSwaps(vector<int> nums) {
+        int ttl_1 =0 , n=nums.size();
+        for(int i=0; i< nums.size(); i++)
+        {
+            if(nums[i]==1) ttl_1++;
+        }
+        int zero_count=0,ans=INT_MAX;
+        for(int i=0, j=0;i<n;j++)
+        {
+            j=j%n;
+            while(j<ttl_1 &&  i<= j) {
+                if(nums[j]==0 )
+                {
+                    zero_count++;
+                    ans = zero_count;
+                }
+                j++;
+                
+            } 
+            zero_count = zero_count-!nums[i]+!nums[j%n];
+            ans = min(ans,zero_count);
+            i++;
+            
+        }
+        if(ttl_1==0) ans=0;
+
+        return ans;
+    }
